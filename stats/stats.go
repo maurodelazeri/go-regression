@@ -1,37 +1,5 @@
 package stats
 
-//
-// stats.go
-// 
-// Author:   Gary Boone
-// 
-// Copyright (c) 2011-2013 Gary Boone <gary.boone@gmail.com>.
-//
-// Changes:
-//           20110618   initial version
-//           20110705   added RandNormal() and tests/benchmarks
-//           20130121	Go1 cleanup; documentation cleanup
-//
-// Source:
-// https://github.com/GaryBoone/GoStats
-//
-// There are three ways to use GoStats as your program accumulates values:
-// 1. Incremental or streaming -- include the new values one at a time
-// 2. Incremental, in chunks -- include the new values in chunks by passing an array of values
-//
-//    Obtain the descriptive stats at any time by calling Mean(), Variance(), etc.
-//
-// 3. Batch -- just calculate results for the passed-in array. These functions are prefixed by 
-//    "Calc". 
-//
-// See stats_test.go for examples of each.
-//
-// Descriptions of the skew and kurtosis calculations can be found here:
-// http://www.tc3.edu/instruct/sbrown/stat/shape.htm
-//
-// For build/test help, see README.md.
-//
-
 import (
 	"math"
 )
@@ -41,8 +9,8 @@ type Stats struct {
 	n, min, max, sum, mean, m2, m3, m4 float64
 }
 
-// 
-// 
+//
+//
 // Accessor Functions
 //
 //
@@ -72,7 +40,7 @@ func (d *Stats) Mean() float64 {
 }
 
 //
-// 
+//
 // Incremental Functions
 //
 //
@@ -166,7 +134,7 @@ func (d *Stats) SampleKurtosis() float64 {
 //
 // These are non-incremental functions that operate only on the data given them.
 // They're prefixed with 'Calc'.
-// 
+//
 func StatsCount(data []float64) int {
 	return len(data)
 }
